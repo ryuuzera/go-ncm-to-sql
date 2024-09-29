@@ -75,12 +75,10 @@ func main() {
     }
 
 		insertSQLBase := `INSERT INTO ncm (codigo, descricao, data_inicio, data_fim, tipo_ato_ini, numero_ato_ini, ano_ato_ini) VALUES `
-
-	// Variables to hold batches of values and params
-	var values []string
+	
+		var values []string
 	var params []interface{}
 
-	// Loop through nomenclaturas and add to batch
 	for i, nome := range ncmData.Nomenclaturas {
 		values = append(values, "(?, ?, ?, ?, ?, ?, ?)")
 		params = append(params, nome.Codigo, nome.Descricao, nome.DataInicio, nome.DataFim, nome.TipoAtoIni, nome.NumeroAtoIni, nome.AnoAtoIni)
